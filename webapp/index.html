@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Angular Url Builder</title>
+
+		<!-- Bootstrap -->
+		<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body style="padding-top: 40px;" ng-controller="UrlBuilderController">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Angular URL Builder</h3>
+						</div>
+						<div class="panel-body">
+							
+							<form role="form" ng-submit="buildUrl()">
+							  <h4>Step 1: Enter the URL of your website.</h4>
+							  <div class="form-group">
+							    <label for="websiteUrl">Website Url*</label>
+							    <input ng-model="baseUrl" type="text" class="form-control" id="websiteUrl" placeholder="eg. http://www.xyz.com/page.html" 
+							    	data-toggle="tooltip" 
+							    	data-container="body"
+							    	data-trigger="focus"
+							    	title="(e.g. http://www.urchin.com/download.html)"
+									>
+							  </div>
+							  
+							  <h4>Step 2: Fill in the fields below. Campaign Source, Campaign Medium and Campaign Name should always be used.</h4>
+							  <div class="form-group">
+							    <label for="utm_source">Campaign Source*</label>
+							    <input ng-model="utc_source" type="text" class="form-control" id="utm_source" placeholder="referrer: eg. google, citysearch, newsletter4" 
+							    	data-toggle="tooltip" 
+							    	data-container="body"
+							    	data-trigger="focus"
+							    	title="Required. Use utm_source to identify a search engine, newsletter name, or other source. Example: utm_source=google">
+							  </div>
+  
+							  <div class="form-group">
+							    <label for="utm_medium">Campaign Medium*</label>
+							    <input ng-model="utc_medium" type="text" class="form-control" id="utm_medium" placeholder="marketing medium: eg. cpc, banner, email"
+							    	data-toggle="tooltip" 
+							    	data-container="body"
+							    	data-trigger="focus"
+							    	title="Required. Use utm_medium to identify a medium such as email or cost-per- click. Example: utm_medium=cpc">
+				
+							  </div>
+    
+							  <div class="form-group">
+							    <label for="utm_term">Campaign Term*</label>
+							    <input ng-model="utc_term" type="text" class="form-control" id="utm_term" placeholder="identify the paid keywords eg. running shoes"
+									data-toggle="tooltip" 
+							    	data-container="body"
+							    	data-trigger="focus"
+							    	title="Used for paid search. Use utm_term to note the keywords for this ad. Example: utm_term=running+shoes"
+							    >
+							  </div>
+  
+							  <div class="form-group">
+							    <label for="utm_content">Campaign Content*</label>
+							    <input ng-model="utc_content" type="text" class="form-control" id="utm_content" placeholder="use to differentiate ads eg. logolink or textlink"
+								    	data-toggle="tooltip" 
+								    	data-container="body"
+								    	data-trigger="focus"
+								    	title="Used for A/B testing and content-targeted ads. Use utm_content to differentiate ads or links that point to the same URL. Examples: utm_content=logolink or utm_content=textlink"
+							    >
+							  </div>
+  
+							  <div class="form-group">
+							    <label for="utc_campaign">Campaign Name*</label>
+							    <input ng-model="utc_campaign" type="text" class="form-control" id="utm_campaign" placeholder="product, promo code, or slogan eg. spring_sale"
+							    	data-toggle="tooltip" 
+							    	data-container="body"
+							    	data-trigger="focus"
+							    	title="Used for keyword analysis. Use utm_campaign to identify a specific product promotion or strategic campaign. Example: utm_campaign=spring_sale"
+							    >
+							  </div>
+  
+							   
+							  <button type="submit" class="btn btn-primary">Submit</button>
+							  <button type="reset" class="btn btn-warning pull-right" ng-click="reset()">Reset</button>
+							</form>
+
+							<br />
+							<h4>Complete Url</h4>
+							<div class="well">{{finalUrl}}</div>
+
+						</div>
+						<div class="panel-footer">By zenista@rocketmail.com</div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	    <script src="./bootstrap/js/bootstrap.min.js"></script>
+	    <script src="./js/angular.min.js"></script>
+	    <script src="./js/script.js"></script>
+	    <script type="text/javascript"> $('[data-toggle="tooltip"]').tooltip(); </script>
+	</body>
+</html>
+
+
+
